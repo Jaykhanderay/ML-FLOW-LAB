@@ -1,0 +1,34 @@
+ML-FLOW is an api useful for the ML model analysis,prediction,deplyoment of the ml model
+
+tutorial of the mlflow
+
+# Open the google collab and paste my code given in this repository
+
+paste the below command in the new cell.
+# !pip install pyngrok 
+
+Paste the below command in the new cell for connecting to the port.
+# get_ipython().system_raw("mlflow ui --port 5000 &")
+
+paste the below command in the new cell
+
+from pyngrok import ngrok
+
+# Set your ngrok authtoken
+ngrok.set_auth_token("your ngrok authe key paste here")
+
+# Start MLflow Tracking Server
+get_ipython().system_raw("mlflow ui --port 5000 &")
+
+# Create ngrok tunnel
+ngrok_tunnel = ngrok.connect(5000)
+
+print("MLflow UI is available at:", ngrok_tunnel.public_url)
+
+
+
+Steps to get the ngrok authentication key
+1) https://dashboard.ngrok.com/signup
+2) verify email
+3) on the left side click on icon where you see "your authtoken"
+4) click on that copy and paste it on the above code
